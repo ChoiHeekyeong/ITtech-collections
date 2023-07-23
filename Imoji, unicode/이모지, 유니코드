@@ -1,0 +1,72 @@
+
+
+##이모지
+  : 유니코드를 이용해 만든 그림 문자.
+  
+1. 이모지 사용 방법
+  - 윈도우 :
+  - 맥 :
+  -
+    문자 뒤에 붙이는 variation selector
+    Unicode에는 변이 글자를 처리하는 variation selector라는 구조가 있고, 이것을 이모티콘 스타일 지정에 사용합니다.
+    이모티콘 뒤에 U+FE0E VARIATION SELECTOR-15 (TPVS) 또는 U+FE0F VARIATION SELECTOR-16 (EPVS) 를 붙여 스타일을 지정합니다.
+
+  -
+      https://apps.timwhitlock.info/emoji/tables/unicode
+      위 사이트에서 우측 유니코드에서 U+를 &#x를 붙인
+  
+2. 이모지 사용시 주의 점 (호환성 등)
+- 이모지는 다양하고, 모든 이미지가 모든 환경에서 다 제공되는 것은 아니다.
+  PC에서 특정 이모지를 사용했지만 안드로이드, iOS에서는 지원하지 않아 깨져보일 수 있다.
+  이것은 비단 PC, 모바일 환경의 차이 뿐 아니라 구글, 트위터, 인스타그램과 같은 플랫폼에서도 특정한 곳에서만 지원하는 이모지도 존재한다
+    
+    
+3. 이모지 입력 제한 방법
+    1) 라이브러리 사용
+    - pom.xml에 이모지 라이브러리를 추가시킨다
+    ```
+    <!-- pom.xml 설정 방법 -->
+    <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
+    <dependency>
+    <groupId>com.vdurmont</groupId>
+    <artifactId>emoji-java</artifactId>
+    <version>5.1.1</version>
+    </dependency>
+    ```
+
+    ```
+    String kingPork = " king Pork. 🤞🤣🤞 ";
+    String emojiRemoved = EmojiParser.removeAllEmojis(kingPork);
+    System.out.println(emojiRemoved); 
+ 
+    ```
+  라이브러리 최신 버전은 https://central.sonatype.com/search?q=emoji-java&smo=true 에서 확인
+
+
+
+    2) JS 정규식 이용
+      
+    ```
+   var testString = "🥰🥵🥶🥳🥴🥺👨‍🦰👩‍🦰👨‍🦱👩‍🦱👨‍🦲👩‍🦲👨‍🦳👩‍🦳🎨🎦"
+  var converted = testString.replace(/[\u{1F004}-\u{1F9E6}]|[\u{1F600}-\u{1F9D0}]/gu, "")
+  console.log("converted", converted)
+```
+
+  3) JAVA코드
+  ```
+  ```
+
+
+##유니코드
+  : 현존하는 전 세계의 모든 문자를 시스템에서 표현하고 다룰 수 있도록 고안된 표준.
+    일반적으로 유니코드에서는 각 코드 포인트를 표기할 때 16진수로 표기하되 접두어로 U+를 붙인다.
+    그리고 16진수가 0xFF이하인 경우 0을 붙여서 사용한다. ex) 0x41 -> U+0041
+1. 유니코드 UTF-8, EUC-KR, CP949, MS949 들의 차이
+
+
+##윈도우-맥 파일공유 시 파일명 깨지는 현상 및 해결 방안
+
+
+
+
+  .
